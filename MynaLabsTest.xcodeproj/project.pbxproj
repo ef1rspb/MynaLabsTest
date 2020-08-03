@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		303EA5C524D85ACE00ABA249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA5C424D85ACE00ABA249 /* AppDelegate.swift */; };
-		303EA5C724D85ACE00ABA249 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA5C624D85ACE00ABA249 /* SceneDelegate.swift */; };
 		303EA5C924D85ACE00ABA249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA5C824D85ACE00ABA249 /* ViewController.swift */; };
-		303EA5CC24D85ACE00ABA249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303EA5CA24D85ACE00ABA249 /* Main.storyboard */; };
 		303EA5CE24D85AD400ABA249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303EA5CD24D85AD400ABA249 /* Assets.xcassets */; };
 		303EA5D124D85AD400ABA249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303EA5CF24D85AD400ABA249 /* LaunchScreen.storyboard */; };
 		303EA5DC24D85AD400ABA249 /* MynaLabsTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA5DB24D85AD400ABA249 /* MynaLabsTestTests.swift */; };
@@ -37,9 +35,7 @@
 /* Begin PBXFileReference section */
 		303EA5C124D85ACE00ABA249 /* MynaLabsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MynaLabsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303EA5C424D85ACE00ABA249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		303EA5C624D85ACE00ABA249 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		303EA5C824D85ACE00ABA249 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		303EA5CB24D85ACE00ABA249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		303EA5CD24D85AD400ABA249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		303EA5D024D85AD400ABA249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		303EA5D224D85AD400ABA249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,9 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				303EA5C424D85ACE00ABA249 /* AppDelegate.swift */,
-				303EA5C624D85ACE00ABA249 /* SceneDelegate.swift */,
 				303EA5C824D85ACE00ABA249 /* ViewController.swift */,
-				303EA5CA24D85ACE00ABA249 /* Main.storyboard */,
 				303EA5CD24D85AD400ABA249 /* Assets.xcassets */,
 				303EA5CF24D85AD400ABA249 /* LaunchScreen.storyboard */,
 				303EA5D224D85AD400ABA249 /* Info.plist */,
@@ -234,7 +228,6 @@
 			files = (
 				303EA5D124D85AD400ABA249 /* LaunchScreen.storyboard in Resources */,
 				303EA5CE24D85AD400ABA249 /* Assets.xcassets in Resources */,
-				303EA5CC24D85ACE00ABA249 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +254,6 @@
 			files = (
 				303EA5C924D85ACE00ABA249 /* ViewController.swift in Sources */,
 				303EA5C524D85ACE00ABA249 /* AppDelegate.swift in Sources */,
-				303EA5C724D85ACE00ABA249 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		303EA5CA24D85ACE00ABA249 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				303EA5CB24D85ACE00ABA249 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		303EA5CF24D85AD400ABA249 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTB9AB3293;
 				INFOPLIST_FILE = MynaLabsTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.malina.MynaLabsTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,6 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DTB9AB3293;
 				INFOPLIST_FILE = MynaLabsTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.malina.MynaLabsTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
