@@ -11,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.backgroundColor = .black
-    window?.rootViewController = ViewController()
+    window?.rootViewController = NavigationService.makeHomeModule()
     window?.makeKeyAndVisible()
     return true
   }
