@@ -95,11 +95,9 @@
 		303EA5C324D85ACE00ABA249 /* MynaLabsTest */ = {
 			isa = PBXGroup;
 			children = (
+				303EA5F424D85E1400ABA249 /* Resources */,
 				303EA5C424D85ACE00ABA249 /* AppDelegate.swift */,
 				303EA5C824D85ACE00ABA249 /* ViewController.swift */,
-				303EA5CD24D85AD400ABA249 /* Assets.xcassets */,
-				303EA5CF24D85AD400ABA249 /* LaunchScreen.storyboard */,
-				303EA5D224D85AD400ABA249 /* Info.plist */,
 			);
 			path = MynaLabsTest;
 			sourceTree = "<group>";
@@ -120,6 +118,16 @@
 				303EA5E824D85AD400ABA249 /* Info.plist */,
 			);
 			path = MynaLabsTestUITests;
+			sourceTree = "<group>";
+		};
+		303EA5F424D85E1400ABA249 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				303EA5D224D85AD400ABA249 /* Info.plist */,
+				303EA5CD24D85AD400ABA249 /* Assets.xcassets */,
+				303EA5CF24D85AD400ABA249 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
