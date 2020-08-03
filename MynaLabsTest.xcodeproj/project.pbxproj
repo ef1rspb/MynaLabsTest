@@ -16,7 +16,7 @@
 		303EA5FF24D8636600ABA249 /* HomeModule+Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA5FE24D8636600ABA249 /* HomeModule+Assembly.swift */; };
 		303EA60124D863CD00ABA249 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60024D863CD00ABA249 /* NavigationService.swift */; };
 		303EA60424D866E900ABA249 /* ViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60324D866E900ABA249 /* ViewHolder.swift */; };
-		303EA60624D8672400ABA249 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60524D8672400ABA249 /* HomeView.swift */; };
+		303EA60624D8672400ABA249 /* HomeLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60524D8672400ABA249 /* HomeLayoutView.swift */; };
 		303EA60824D8676200ABA249 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60724D8676200ABA249 /* HomePresenter.swift */; };
 		303EA60A24D86F8800ABA249 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 303EA60924D86F8800ABA249 /* Localizable.strings */; };
 		303EA60E24D86FF000ABA249 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA60D24D86FF000ABA249 /* String+Localized.swift */; };
@@ -58,7 +58,7 @@
 		303EA5FE24D8636600ABA249 /* HomeModule+Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeModule+Assembly.swift"; sourceTree = "<group>"; };
 		303EA60024D863CD00ABA249 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		303EA60324D866E900ABA249 /* ViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHolder.swift; sourceTree = "<group>"; };
-		303EA60524D8672400ABA249 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		303EA60524D8672400ABA249 /* HomeLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLayoutView.swift; sourceTree = "<group>"; };
 		303EA60724D8676200ABA249 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		303EA60924D86F8800ABA249 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		303EA60D24D86FF000ABA249 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				303EA5FC24D8631A00ABA249 /* HomeViewController.swift */,
-				303EA60524D8672400ABA249 /* HomeView.swift */,
+				303EA60524D8672400ABA249 /* HomeLayoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				303EA60E24D86FF000ABA249 /* String+Localized.swift in Sources */,
 				303EA60124D863CD00ABA249 /* NavigationService.swift in Sources */,
 				303EA60424D866E900ABA249 /* ViewHolder.swift in Sources */,
-				303EA60624D8672400ABA249 /* HomeView.swift in Sources */,
+				303EA60624D8672400ABA249 /* HomeLayoutView.swift in Sources */,
 				303EA61624D874FD00ABA249 /* Layout.swift in Sources */,
 				303EA61424D8728100ABA249 /* UIColor+hex.swift in Sources */,
 				303EA5C524D85ACE00ABA249 /* AppDelegate.swift in Sources */,
