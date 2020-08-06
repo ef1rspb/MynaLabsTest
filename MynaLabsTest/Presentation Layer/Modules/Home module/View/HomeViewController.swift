@@ -1,5 +1,6 @@
 import UIKit
 import MobileCoreServices
+import AVKit
 
 final class HomeViewController: UIViewController, ViewHolder {
 
@@ -7,6 +8,12 @@ final class HomeViewController: UIViewController, ViewHolder {
 
   var presenter: HomePresenter!
   private let picker = UIImagePickerController()
+  private lazy var playerViewController: AVPlayerViewController = {
+    let player = AVPlayer()
+    let playerViewController = AVPlayerViewController()
+    playerViewController.player = player
+    return playerViewController
+  }()
 
   override func loadView() {
     view = HomeLayoutView()
@@ -15,6 +22,7 @@ final class HomeViewController: UIViewController, ViewHolder {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    presenter.viewDidLoad()
     configureButtons()
     configurePicker()
   }
@@ -31,11 +39,20 @@ final class HomeViewController: UIViewController, ViewHolder {
       #selector(recordVideoButtonPressed),
       for: .touchUpInside
     )
+
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(thumbnailViewPressed))
+    rootView.thumbnailImageView.isUserInteractionEnabled = true
+    rootView.thumbnailImageView.addGestureRecognizer(tapRecognizer)
   }
 
   private func configurePicker() {
     picker.mediaTypes = [kUTTypeMovie as String]
     picker.delegate = self
+  }
+
+  @objc
+  private func thumbnailViewPressed() {
+    presenter.thumbnailPressed()
   }
 
   @objc
@@ -51,6 +68,10 @@ final class HomeViewController: UIViewController, ViewHolder {
 
 extension HomeViewController: HomeView {
 
+  func setInitialState() {
+    rootView.thumbnailImageView.isHidden = true
+  }
+
   func showLibraryPicker() {
     picker.sourceType = .photoLibrary
     present(picker, animated: true, completion: nil)
@@ -59,6 +80,18 @@ extension HomeViewController: HomeView {
   func showCameraPicker() {
     picker.sourceType = .camera
     present(picker, animated: true, completion: nil)
+  }
+
+  func setShareState(thumnailPreview: UIImage?) {
+    rootView.thumbnailImageView.image = thumnailPreview
+    rootView.thumbnailImageView.isHidden = false
+  }
+
+  func playVideo(url: URL) {
+    playerViewController.player!.replaceCurrentItem(with: .init(url: url))
+    present(playerViewController, animated: true) {
+      self.playerViewController.player!.play()
+    }
   }
 
   func shareMedia(url: URL) {
@@ -85,7 +118,8 @@ extension HomeViewController: HomeView {
   }
 
   func showError(message: String) {
-    let alert = UIAlertController()
+    let alert = UIAlertController(title: "somethins went wrong", message: message, preferredStyle: .alert)
+    present(alert, animated: true, completion: nil)
   }
 }
 

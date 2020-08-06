@@ -2,6 +2,8 @@ import UIKit
 
 final class HomeLayoutView: UIView {
 
+  let thumbnailImageView = UIImageView()
+
   let selectVideoButton: UIButton = {
     let button = UIButton()
     button.setTitle("home_select_video_button_title".localized, for: .normal)
@@ -36,6 +38,15 @@ final class HomeLayoutView: UIView {
   }
 
   private func setupInitialLayout() {
+    addSubview(thumbnailImageView)
+    thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      thumbnailImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+      thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      thumbnailImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7, constant: 0)
+    ])
+
     let stackView = UIStackView(arrangedSubviews: [recordVideoButton, selectVideoButton])
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.spacing = Layout.padding
