@@ -22,7 +22,7 @@ final class HomeLayoutView: UIView {
 
     super.init(frame: frame)
 
-    backgroundColor = Colors.orage
+    backgroundColor = Colors.orange
     setupInitialLayout()
   }
 
