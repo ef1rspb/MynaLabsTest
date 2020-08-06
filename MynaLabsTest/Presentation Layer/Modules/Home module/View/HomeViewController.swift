@@ -131,8 +131,16 @@ extension HomeViewController: HomeView {
   }
 
   func showError(message: String) {
-    let alert = UIAlertController(title: "somethins went wrong", message: message, preferredStyle: .alert)
+    let alert = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
     present(alert, animated: true, completion: nil)
+  }
+
+  func startProcessingAnimation() {
+    rootView.spinnerView.start()
+  }
+
+  func stopProcessingAnimation() {
+    rootView.spinnerView.stop()
   }
 }
 

@@ -10,6 +10,8 @@ protocol HomeView: class {
   func playVideo(url: URL)
   func setShareState(thumnailPreview: UIImage?)
   func showError(message: String)
+  func startProcessingAnimation()
+  func stopProcessingAnimation()
 }
 
 protocol HomePresenter {
@@ -69,9 +71,11 @@ final class HomePresenterImpl: HomePresenter {
   func apply(effect: MLTAudioEffect) {
     guard let url = currentVideoUrl else { return }
     view?.setInitialState()
+    view?.startProcessingAnimation()
 
     audioEffectProcessor.apply(effect: effect, toVideo: url) { [weak self] result in
       DispatchQueue.main.async { [weak self] in
+        self?.view?.stopProcessingAnimation()
         switch result {
           case let .success(url):
             let thumnail = self?.videoPreviewGenerator.thumbnail(for: url)

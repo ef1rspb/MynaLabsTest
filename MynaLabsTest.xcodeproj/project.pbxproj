@@ -24,6 +24,7 @@
 		303EA61424D8728100ABA249 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA61324D8728100ABA249 /* UIColor+hex.swift */; };
 		303EA61624D874FD00ABA249 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA61524D874FD00ABA249 /* Layout.swift */; };
 		30681C7A24DC8E05004D3AE0 /* VideoPreviewGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30681C7924DC8E05004D3AE0 /* VideoPreviewGenerator.swift */; };
+		30681C7C24DC97D6004D3AE0 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30681C7B24DC97D6004D3AE0 /* SpinnerView.swift */; };
 		3085B9C624DC53810072B7CD /* MLTAudioEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C524DC53810072B7CD /* MLTAudioEffect.swift */; };
 		3085B9C824DC601C0072B7CD /* AudioEffectProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C724DC601C0072B7CD /* AudioEffectProcessor.swift */; };
 		3088C13424D94CD800411C8A /* AVAsset+AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088C13324D94CD800411C8A /* AVAsset+AudioTrack.swift */; };
@@ -70,6 +71,7 @@
 		303EA61324D8728100ABA249 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		303EA61524D874FD00ABA249 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		30681C7924DC8E05004D3AE0 /* VideoPreviewGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewGenerator.swift; sourceTree = "<group>"; };
+		30681C7B24DC97D6004D3AE0 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		3085B9C524DC53810072B7CD /* MLTAudioEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTAudioEffect.swift; sourceTree = "<group>"; };
 		3085B9C724DC601C0072B7CD /* AudioEffectProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectProcessor.swift; sourceTree = "<group>"; };
 		3088C13324D94CD800411C8A /* AVAsset+AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+AudioTrack.swift"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				303EA5FC24D8631A00ABA249 /* HomeViewController.swift */,
 				303EA60524D8672400ABA249 /* HomeLayoutView.swift */,
+				30681C7B24DC97D6004D3AE0 /* SpinnerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				303EA5FF24D8636600ABA249 /* HomeModule+Assembly.swift in Sources */,
 				303EA60E24D86FF000ABA249 /* String+Localized.swift in Sources */,
 				303EA60124D863CD00ABA249 /* NavigationService.swift in Sources */,
+				30681C7C24DC97D6004D3AE0 /* SpinnerView.swift in Sources */,
 				303EA60424D866E900ABA249 /* ViewHolder.swift in Sources */,
 				3085B9C624DC53810072B7CD /* MLTAudioEffect.swift in Sources */,
 				303EA60624D8672400ABA249 /* HomeLayoutView.swift in Sources */,

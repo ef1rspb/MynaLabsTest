@@ -9,6 +9,8 @@ final class HomeLayoutView: UIView {
     return imageView
   }()
 
+  let spinnerView: SpinnerView = UIActivityIndicatorView(style: .whiteLarge)
+
   let shareVideoButton: UIButton
   let selectVideoButton: UIButton
   let recordVideoButton: UIButton
@@ -36,6 +38,13 @@ final class HomeLayoutView: UIView {
       playView.centerXAnchor.constraint(equalTo: thumbnailImageView.centerXAnchor),
       playView.widthAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.3, constant: 0),
       playView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.3, constant: 0)
+    ])
+
+    addSubview(spinnerView)
+    spinnerView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      spinnerView.centerYAnchor.constraint(equalTo: centerYAnchor),
+      spinnerView.centerXAnchor.constraint(equalTo: centerXAnchor)
     ])
 
     addSubview(thumbnailImageView)
