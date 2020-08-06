@@ -90,6 +90,7 @@ extension HomeViewController: HomeView {
   }
 
   func showCameraPicker() {
+    // TODO: Ask for camera & microphone permissions
     picker.sourceType = .camera
     present(picker, animated: true, completion: nil)
   }

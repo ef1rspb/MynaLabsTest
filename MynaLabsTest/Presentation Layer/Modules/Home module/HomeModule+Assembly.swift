@@ -7,7 +7,7 @@ extension NavigationService {
     let presenter = HomePresenterImpl(
       view: viewController,
       audioEffectProcessor: AudioEffectProcessorImpl(),
-      videoPreviewGenerator: DefailtVideoPreviewGenerator()
+      videoPreviewGenerator: DefaultVideoPreviewGenerator()
     )
     viewController.presenter = presenter
     return viewController

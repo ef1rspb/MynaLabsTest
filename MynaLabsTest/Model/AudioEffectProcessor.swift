@@ -11,6 +11,7 @@ typealias AudioEffectProcessorCompletion = (Result<URL, Error>) -> Void
 
 protocol AudioEffectProcessor {
 
+  // TODO: Add progress value
   func apply(
     effect: MLTAudioEffect,
     toVideo url: URL,
@@ -217,7 +218,7 @@ class AudioEffectProcessorImpl: AudioEffectProcessor {
     let aVideoAssetTrack: AVAssetTrack = aVideoAsset.tracks(withMediaType: AVMediaType.video)[0]
     let aAudioAssetTrack: AVAssetTrack = aAudioAsset.tracks(withMediaType: .audio)[0]
 
-
+    // TODO: Flip video obtained from camera
     //    if shouldFlipHorizontally {
     //      // Flip video horizontally
     //      var frontalTransform: CGAffineTransform = CGAffineTransform(scaleX: -1.0, y: 1.0)

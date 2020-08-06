@@ -5,7 +5,7 @@ protocol VideoPreviewGenerator {
   func thumbnail(for video: URL) -> UIImage?
 }
 
-class DefailtVideoPreviewGenerator: VideoPreviewGenerator {
+class DefaultVideoPreviewGenerator: VideoPreviewGenerator {
 
   func thumbnail(for video: URL) -> UIImage? {
     let asset = AVAsset(url: video)
