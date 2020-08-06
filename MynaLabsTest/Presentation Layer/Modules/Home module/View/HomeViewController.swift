@@ -1,7 +1,7 @@
 import UIKit
 import MobileCoreServices
 
-final class HomeViewController: UIViewController, HomeView, ViewHolder {
+final class HomeViewController: UIViewController, ViewHolder {
 
   typealias RootViewType = HomeLayoutView
 
@@ -16,8 +16,7 @@ final class HomeViewController: UIViewController, HomeView, ViewHolder {
     super.viewDidLoad()
 
     configureButtons()
-    picker.mediaTypes = [kUTTypeMovie as String]
-    picker.delegate = self
+    configurePicker()
   }
 
   private func configureButtons() {
@@ -29,31 +28,60 @@ final class HomeViewController: UIViewController, HomeView, ViewHolder {
 
     rootView.recordVideoButton.addTarget(
       self, action:
-      #selector(showCameraPicker),
+      #selector(recordVideoButtonPressed),
       for: .touchUpInside
     )
   }
 
-  @objc
-  private func selectVideoButtonPressed() {
-    //presenter.selectVideoButtonPressed()
-    showImagePicker()
+  private func configurePicker() {
+    picker.mediaTypes = [kUTTypeMovie as String]
+    picker.delegate = self
   }
 
-  private func showImagePicker() {
+  @objc
+  private func selectVideoButtonPressed() {
+    presenter.selectVideoButtonPressed()
+  }
+
+  @objc
+  private func recordVideoButtonPressed() {
+    presenter.recordVideoButtonPressed()
+  }
+}
+
+extension HomeViewController: HomeView {
+
+  func showLibraryPicker() {
     picker.sourceType = .photoLibrary
     present(picker, animated: true, completion: nil)
   }
 
-  @objc
-  private func showCameraPicker() {
+  func showCameraPicker() {
     picker.sourceType = .camera
     present(picker, animated: true, completion: nil)
   }
 
-  func shareAudio(url: URL) {
+  func shareMedia(url: URL) {
     let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
     present(activityViewController, animated: true, completion: nil)
+  }
+
+  func showAvailableEffects(_ effects: [MLTAudioEffect]) {
+    let alert = UIAlertController(title: "Choose audio effect", message: nil, preferredStyle: .actionSheet)
+
+    effects.forEach { effect in
+      let action = UIAlertAction(title: effect.title, style: .default) { [weak self] _ in
+        self?.presenter.apply(effect: effect)
+      }
+      alert.addAction(action)
+    }
+
+    let cancel = UIAlertAction(title: "cancel", style: .cancel) { [weak self] _ in
+      self?.dismiss(animated: true, completion: nil)
+    }
+    alert.addAction(cancel)
+
+    present(alert, animated: true, completion: nil)
   }
 }
 
@@ -79,6 +107,6 @@ extension HomeViewController: UIImagePickerControllerDelegate {
       mediaType == (kUTTypeMovie as String),
       let url = info[.mediaURL] as? URL
       else { return }
-    presenter.loadVideo(by: url)
+    presenter.selectedMedia(url: url)
   }
 }

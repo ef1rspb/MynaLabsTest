@@ -2,13 +2,17 @@ import Foundation
 import AVFoundation
 
 protocol HomeView: class {
-  func shareAudio(url: URL)
+  func showLibraryPicker()
+  func showCameraPicker()
+  func shareMedia(url: URL)
+  func showAvailableEffects(_ effects: [MLTAudioEffect])
 }
 
 protocol HomePresenter {
-
   func selectVideoButtonPressed()
-  func loadVideo(by url: URL)
+  func recordVideoButtonPressed()
+  func selectedMedia(url: URL)
+  func apply(effect: MLTAudioEffect)
 }
 
 private typealias ProcessingCompletion = (_ error: Error?, _ url: URL?) -> Void
@@ -16,16 +20,27 @@ private typealias ProcessingCompletion = (_ error: Error?, _ url: URL?) -> Void
 final class HomePresenterImpl: HomePresenter {
 
   private weak var view: HomeView?
+  private var currentVideoUrl: URL?
 
   init(view: HomeView) {
     self.view = view
   }
 
   func selectVideoButtonPressed() {
-    print("asdasd")
+    view?.showLibraryPicker()
   }
 
-  func loadVideo(by url: URL) {
+  func recordVideoButtonPressed() {
+    view?.showCameraPicker()
+  }
+  
+  func selectedMedia(url: URL) {
+    currentVideoUrl = url
+    view?.showAvailableEffects([.reverb, .delay, .distortion, .timePitch])
+  }
+
+  func apply(effect: MLTAudioEffect) {
+    guard let url = currentVideoUrl else { return }
     exportAudioFromVideo(videoUrl: url)
   }
 
@@ -41,9 +56,9 @@ final class HomePresenterImpl: HomePresenter {
           self?.mergeVideoAndAudio(videoUrl: videoUrl, audioUrl: audioUrl) { error, url in
             guard error == nil else { return }
             guard let videoUrl = url else { return }
-            
+
             DispatchQueue.main.async {
-              self?.view?.shareAudio(url: videoUrl)
+              self?.view?.shareMedia(url: videoUrl)
             }
 
           }
