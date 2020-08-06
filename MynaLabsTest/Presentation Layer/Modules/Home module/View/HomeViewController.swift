@@ -28,6 +28,12 @@ final class HomeViewController: UIViewController, ViewHolder {
   }
 
   private func configureButtons() {
+    rootView.shareVideoButton.addTarget(
+      self, action:
+      #selector(shareVideoButtonPressed),
+      for: .touchUpInside
+    )
+
     rootView.selectVideoButton.addTarget(
       self, action:
       #selector(selectVideoButtonPressed),
@@ -56,6 +62,11 @@ final class HomeViewController: UIViewController, ViewHolder {
   }
 
   @objc
+  private func shareVideoButtonPressed() {
+    presenter.shareVideoButtonPressed()
+  }
+
+  @objc
   private func selectVideoButtonPressed() {
     presenter.selectVideoButtonPressed()
   }
@@ -70,6 +81,7 @@ extension HomeViewController: HomeView {
 
   func setInitialState() {
     rootView.thumbnailImageView.isHidden = true
+    rootView.shareVideoButton.isHidden = true
   }
 
   func showLibraryPicker() {
@@ -85,6 +97,7 @@ extension HomeViewController: HomeView {
   func setShareState(thumnailPreview: UIImage?) {
     rootView.thumbnailImageView.image = thumnailPreview
     rootView.thumbnailImageView.isHidden = false
+    rootView.shareVideoButton.isHidden = false
   }
 
   func playVideo(url: URL) {

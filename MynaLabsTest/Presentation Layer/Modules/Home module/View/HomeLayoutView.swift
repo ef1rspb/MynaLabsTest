@@ -3,30 +3,15 @@ import UIKit
 final class HomeLayoutView: UIView {
 
   let thumbnailImageView = UIImageView()
-
-  let selectVideoButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("home_select_video_button_title".localized, for: .normal)
-    button.titleLabel?.textColor = .white
-    button.layer.borderColor = UIColor.white.cgColor
-    button.layer.borderWidth = 1.0
-    button.layer.cornerRadius = 5;
-    button.layer.masksToBounds = true;
-    return button
-  }()
-
-  let recordVideoButton: UIButton = {
-    let button = UIButton()
-    button.setTitle("home_record_video_button_title".localized, for: .normal)
-    button.titleLabel?.textColor = .white
-    button.layer.borderColor = UIColor.white.cgColor
-    button.layer.borderWidth = 1.0
-    button.layer.cornerRadius = 5;
-    button.layer.masksToBounds = true;
-    return button
-  }()
+  let shareVideoButton: UIButton
+  let selectVideoButton: UIButton
+  let recordVideoButton: UIButton
 
   override init(frame: CGRect) {
+    shareVideoButton = Self.createButton(titled: "home_share_video_button_title".localized)
+    selectVideoButton = Self.createButton(titled: "home_select_video_button_title".localized)
+    recordVideoButton = Self.createButton(titled: "home_record_video_button_title".localized)
+
     super.init(frame: frame)
 
     backgroundColor = Colors.orage
@@ -44,10 +29,10 @@ final class HomeLayoutView: UIView {
       thumbnailImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
       thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
       thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      thumbnailImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7, constant: 0)
+      thumbnailImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: 0)
     ])
 
-    let stackView = UIStackView(arrangedSubviews: [recordVideoButton, selectVideoButton])
+    let stackView = UIStackView(arrangedSubviews: [shareVideoButton, recordVideoButton, selectVideoButton])
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.spacing = Layout.padding
     stackView.axis = .vertical
@@ -58,5 +43,16 @@ final class HomeLayoutView: UIView {
       stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Layout.padding),
       stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Layout.padding)
     ])
+  }
+
+  private static func createButton(titled: String) -> UIButton {
+    let button = UIButton()
+    button.setTitle(titled, for: .normal)
+    button.titleLabel?.textColor = .white
+    button.layer.borderColor = UIColor.white.cgColor
+    button.layer.borderWidth = 1.0
+    button.layer.cornerRadius = 5;
+    button.layer.masksToBounds = true;
+    return button
   }
 }

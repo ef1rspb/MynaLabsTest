@@ -14,6 +14,7 @@ protocol HomeView: class {
 
 protocol HomePresenter {
   func viewDidLoad()
+  func shareVideoButtonPressed()
   func selectVideoButtonPressed()
   func recordVideoButtonPressed()
   func thumbnailPressed()
@@ -40,6 +41,11 @@ final class HomePresenterImpl: HomePresenter {
 
   func viewDidLoad() {
     view?.setInitialState()
+  }
+
+  func shareVideoButtonPressed() {
+    guard let url = currentVideoUrl else { return }
+    view?.shareMedia(url: url)
   }
 
   func selectVideoButtonPressed() {
