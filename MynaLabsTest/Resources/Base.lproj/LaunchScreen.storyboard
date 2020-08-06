@@ -16,26 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="QEv-vN-vhu">
-                                <rect key="frame" x="0.0" y="384" width="414" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="eBW-zI-i4a">
+                                <rect key="frame" x="-307.5" y="227" width="1029" height="452"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.12156862745098039" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="QEv-vN-vhu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2X9-1W-9jS"/>
-                            <constraint firstItem="QEv-vN-vhu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="HwW-01-OwN"/>
-                            <constraint firstItem="QEv-vN-vhu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gCp-fq-IDK"/>
-                            <constraint firstItem="QEv-vN-vhu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oDR-oH-3Eg"/>
+                            <constraint firstItem="eBW-zI-i4a" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FEh-RN-cXq"/>
+                            <constraint firstItem="eBW-zI-i4a" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UQ5-gn-BW3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreen" width="514.5" height="226"/>
+        <image name="launchscreen" width="1029" height="452"/>
     </resources>
 </document>
