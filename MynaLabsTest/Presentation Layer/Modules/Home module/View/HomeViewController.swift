@@ -132,6 +132,10 @@ extension HomeViewController: HomeView {
 
   func showError(message: String) {
     let alert = UIAlertController(title: "Something went wrong", message: message, preferredStyle: .alert)
+    let okAktion = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+      self?.dismiss(animated: true, completion: nil)
+    }
+    alert.addAction(okAktion)
     present(alert, animated: true, completion: nil)
   }
 

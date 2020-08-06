@@ -5,3 +5,4 @@
 "audio_effect_distortion" = "Distortion";
 "audio_effect_delay" = "Delay";
 "audio_effect_time_pitch" = "Pitch";
+"try_again" = "Please try again";

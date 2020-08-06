@@ -3,6 +3,8 @@ import AVFoundation
 enum AudioEffectProcessorError: Error {
 
   case unknown
+
+  var localizedDescription: String { "try_again".localized }
 }
 
 typealias AudioEffectProcessorCompletion = (Result<URL, Error>) -> Void
