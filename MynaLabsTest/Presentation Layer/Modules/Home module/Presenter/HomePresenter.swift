@@ -37,11 +37,18 @@ final class HomePresenterImpl: HomePresenter {
       self?.appleEffectToAudio(to: temp) { error, url in
         guard error == nil else { return }
         guard let audioUrl = url else { return }
-        self?.mergeVideoAndAudio(videoUrl: videoUrl, audioUrl: audioUrl) { error, url in
-          guard error == nil else { return }
-          guard let videoUrl = url else { return }
-          self?.view?.shareAudio(url: videoUrl)
+        DispatchQueue.global().async { [weak self] in
+          self?.mergeVideoAndAudio(videoUrl: videoUrl, audioUrl: audioUrl) { error, url in
+            guard error == nil else { return }
+            guard let videoUrl = url else { return }
+            
+            DispatchQueue.main.async {
+              self?.view?.shareAudio(url: videoUrl)
+            }
+
+          }
         }
+
       }
     }) { error in
       print(error)
@@ -161,7 +168,6 @@ final class HomePresenterImpl: HomePresenter {
   func mergeVideoAndAudio(
     videoUrl: URL,
     audioUrl: URL,
-    shouldFlipHorizontally: Bool = false,
     completion: @escaping (_ error: Error?, _ url: URL?) -> Void
   ) {
 
@@ -176,12 +182,12 @@ final class HomePresenterImpl: HomePresenter {
     let aAudioAsset = AVAsset(url: audioUrl)
 
     let compositionAddVideo = mixComposition.addMutableTrack(
-      withMediaType: AVMediaType.video,
+      withMediaType: .video,
       preferredTrackID: kCMPersistentTrackID_Invalid
     )!
 
     let compositionAddAudio = mixComposition.addMutableTrack(
-      withMediaType: AVMediaType.audio,
+      withMediaType: .audio,
       preferredTrackID: kCMPersistentTrackID_Invalid
     )!
 
@@ -192,7 +198,7 @@ final class HomePresenterImpl: HomePresenter {
 
     let aVideoAssetTrack: AVAssetTrack = aVideoAsset.tracks(withMediaType: AVMediaType.video)[0]
     //let aAudioOfVideoAssetTrack: AVAssetTrack? = aVideoAsset.tracks(withMediaType: AVMediaType.audio).first
-    let aAudioAssetTrack: AVAssetTrack = aAudioAsset.tracks(withMediaType: AVMediaType.audio)[0]
+    let aAudioAssetTrack: AVAssetTrack = aAudioAsset.tracks(withMediaType: .audio)[0]
 
     // Default must have tranformation
     //compositionAddVideo.preferredTransform = aVideoAssetTrack.preferredTransform
@@ -219,9 +225,9 @@ final class HomePresenterImpl: HomePresenter {
       //In my case my audio file is longer then video file so i took videoAsset duration
       //instead of audioAsset duration
       try mutableCompositionAudioTrack[0].insertTimeRange(
-        CMTimeRangeMake(start: CMTime.zero, duration: aVideoAssetTrack.timeRange.duration),
+        CMTimeRangeMake(start: .zero, duration: aVideoAssetTrack.timeRange.duration),
         of: aAudioAssetTrack,
-        at: CMTime.zero
+        at: .zero
       )
 
       // adding audio (of the video if exists) asset to the final composition
@@ -239,7 +245,7 @@ final class HomePresenterImpl: HomePresenter {
 
     // Exporting
     let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let savePathUrl = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("output.mov")!//documentsURL.appendingPathComponent("output.mov")
+    let savePathUrl = documentsURL.appendingPathComponent("output.mov")//NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("output.mov")!//documentsURL.appendingPathComponent("output.mov")
 
     do { // delete old video
       try FileManager.default.removeItem(at: savePathUrl)
@@ -254,7 +260,7 @@ final class HomePresenterImpl: HomePresenter {
     )!
     assetExport.outputFileType = .mov
     assetExport.outputURL = savePathUrl
-    assetExport.shouldOptimizeForNetworkUse = true
+    //assetExport.shouldOptimizeForNetworkUse = true
 
     assetExport.exportAsynchronously { () -> Void in
       switch assetExport.status {
