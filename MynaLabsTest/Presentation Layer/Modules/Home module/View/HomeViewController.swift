@@ -83,11 +83,13 @@ extension HomeViewController: HomeView {
 
     present(alert, animated: true, completion: nil)
   }
+
+  func showError(message: String) {
+    let alert = UIAlertController()
+  }
 }
 
-extension HomeViewController: UINavigationControllerDelegate {
-
-}
+extension HomeViewController: UINavigationControllerDelegate {}
 
 extension HomeViewController: UIImagePickerControllerDelegate {
 

@@ -24,7 +24,8 @@
 		303EA61424D8728100ABA249 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA61324D8728100ABA249 /* UIColor+hex.swift */; };
 		303EA61624D874FD00ABA249 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303EA61524D874FD00ABA249 /* Layout.swift */; };
 		3085B9C624DC53810072B7CD /* MLTAudioEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C524DC53810072B7CD /* MLTAudioEffect.swift */; };
-		3088C13424D94CD800411C8A /* AVAsset+IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088C13324D94CD800411C8A /* AVAsset+IO.swift */; };
+		3085B9C824DC601C0072B7CD /* AudioEffectProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B9C724DC601C0072B7CD /* AudioEffectProcessor.swift */; };
+		3088C13424D94CD800411C8A /* AVAsset+AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3088C13324D94CD800411C8A /* AVAsset+AudioTrack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +69,8 @@
 		303EA61324D8728100ABA249 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		303EA61524D874FD00ABA249 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		3085B9C524DC53810072B7CD /* MLTAudioEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTAudioEffect.swift; sourceTree = "<group>"; };
-		3088C13324D94CD800411C8A /* AVAsset+IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+IO.swift"; sourceTree = "<group>"; };
+		3085B9C724DC601C0072B7CD /* AudioEffectProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEffectProcessor.swift; sourceTree = "<group>"; };
+		3088C13324D94CD800411C8A /* AVAsset+AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAsset+AudioTrack.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				3085B9C524DC53810072B7CD /* MLTAudioEffect.swift */,
+				3085B9C724DC601C0072B7CD /* AudioEffectProcessor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				303EA61324D8728100ABA249 /* UIColor+hex.swift */,
-				3088C13324D94CD800411C8A /* AVAsset+IO.swift */,
+				3088C13324D94CD800411C8A /* AVAsset+AudioTrack.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				303EA60824D8676200ABA249 /* HomePresenter.swift in Sources */,
-				3088C13424D94CD800411C8A /* AVAsset+IO.swift in Sources */,
+				3088C13424D94CD800411C8A /* AVAsset+AudioTrack.swift in Sources */,
 				303EA61124D871AA00ABA249 /* Colors.swift in Sources */,
 				303EA5FF24D8636600ABA249 /* HomeModule+Assembly.swift in Sources */,
 				303EA60E24D86FF000ABA249 /* String+Localized.swift in Sources */,
@@ -379,6 +382,7 @@
 				3085B9C624DC53810072B7CD /* MLTAudioEffect.swift in Sources */,
 				303EA60624D8672400ABA249 /* HomeLayoutView.swift in Sources */,
 				303EA61624D874FD00ABA249 /* Layout.swift in Sources */,
+				3085B9C824DC601C0072B7CD /* AudioEffectProcessor.swift in Sources */,
 				303EA61424D8728100ABA249 /* UIColor+hex.swift in Sources */,
 				303EA5C524D85ACE00ABA249 /* AppDelegate.swift in Sources */,
 				303EA5FD24D8631A00ABA249 /* HomeViewController.swift in Sources */,

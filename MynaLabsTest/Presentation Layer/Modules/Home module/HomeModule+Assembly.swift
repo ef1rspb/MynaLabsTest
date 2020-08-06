@@ -4,7 +4,8 @@ extension NavigationService {
 
   static func makeHomeModule() -> UIViewController {
     let vc = HomeViewController()
-    let presenter = HomePresenterImpl(view: vc)
+    let audioEffectProcessor = AudioEffectProcessorImpl()
+    let presenter = HomePresenterImpl(view: vc, audioEffectProcessor: audioEffectProcessor)
     vc.presenter = presenter
     return vc
   }

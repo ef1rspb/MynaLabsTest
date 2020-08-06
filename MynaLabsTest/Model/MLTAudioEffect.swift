@@ -2,7 +2,7 @@ enum MLTAudioEffect {
   case reverb
   case distortion
   case delay
-  case timePitch
+  //case timePitch
 }
 
 extension MLTAudioEffect {
@@ -15,8 +15,8 @@ extension MLTAudioEffect {
         return "audio_effect_distortion".localized
       case .delay:
         return "audio_effect_delay".localized
-      case .timePitch:
-        return "audio_effect_time_pitch".localized
+//      case .timePitch:
+//        return "audio_effect_time_pitch".localized
     }
   }
 }
