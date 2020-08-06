@@ -30,6 +30,7 @@ final class HomePresenterImpl: HomePresenter {
   private var currentVideoUrl: URL?
   private let audioEffectProcessor: AudioEffectProcessor
   private let videoPreviewGenerator: VideoPreviewGenerator
+  private var isProcessingVideo = false
 
   init(
     view: HomeView,
@@ -46,15 +47,17 @@ final class HomePresenterImpl: HomePresenter {
   }
 
   func shareVideoButtonPressed() {
-    guard let url = currentVideoUrl else { return }
+    guard let url = currentVideoUrl, !isProcessingVideo else { return }
     view?.shareMedia(url: url)
   }
 
   func selectVideoButtonPressed() {
+    guard !isProcessingVideo else { return }
     view?.showLibraryPicker()
   }
 
   func recordVideoButtonPressed() {
+    guard !isProcessingVideo else { return }
     view?.showCameraPicker()
   }
 
@@ -72,9 +75,11 @@ final class HomePresenterImpl: HomePresenter {
     guard let url = currentVideoUrl else { return }
     view?.setInitialState()
     view?.startProcessingAnimation()
+    isProcessingVideo = true
 
     audioEffectProcessor.apply(effect: effect, toVideo: url) { [weak self] result in
       DispatchQueue.main.async { [weak self] in
+        self?.isProcessingVideo = false
         self?.view?.stopProcessingAnimation()
         switch result {
           case let .success(url):
