@@ -3,6 +3,12 @@ import UIKit
 final class HomeLayoutView: UIView {
 
   let thumbnailImageView = UIImageView()
+  private let playView: UIView = {
+    let imageView = UIImageView(image: UIImage(named: "play"))
+    imageView.contentMode = .scaleAspectFit
+    return imageView
+  }()
+
   let shareVideoButton: UIButton
   let selectVideoButton: UIButton
   let recordVideoButton: UIButton
@@ -23,13 +29,22 @@ final class HomeLayoutView: UIView {
   }
 
   private func setupInitialLayout() {
+    thumbnailImageView.addSubview(playView)
+    playView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      playView.centerYAnchor.constraint(equalTo: thumbnailImageView.centerYAnchor),
+      playView.centerXAnchor.constraint(equalTo: thumbnailImageView.centerXAnchor),
+      playView.widthAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.3, constant: 0),
+      playView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 0.3, constant: 0)
+    ])
+
     addSubview(thumbnailImageView)
     thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       thumbnailImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
       thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
       thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      thumbnailImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5, constant: 0)
+      thumbnailImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3, constant: 0)
     ])
 
     let stackView = UIStackView(arrangedSubviews: [shareVideoButton, recordVideoButton, selectVideoButton])
